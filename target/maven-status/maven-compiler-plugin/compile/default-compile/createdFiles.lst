@@ -1,0 +1,14 @@
+com\demo\service\LoginServiceImpl.class
+com\demo\dao\ContactDao.class
+com\demo\service\ContactService.class
+com\demo\dao\ContactDaoImpl.class
+com\demo\beans\Contacts.class
+com\demo\beans\MyUser.class
+com\demo\controller\LoginController.class
+com\demo\controller\TestController.class
+com\demo\dao\LoginDaoImpl.class
+com\demo\beans\UserDetails.class
+com\demo\service\ContactServiceImpl.class
+com\demo\service\LoginService.class
+com\demo\controller\ContactController.class
+com\demo\dao\LoginDao.class
