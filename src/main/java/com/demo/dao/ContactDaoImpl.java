@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.demo.beans.Contacts;
+import com.demo.mapper.ContactRowMapper;
 
 @Repository
 public class ContactDaoImpl implements ContactDao {
@@ -66,6 +67,15 @@ public class ContactDaoImpl implements ContactDao {
 		int n = jdbcTemplate.update("delete from contact_details where cid =?", 
 				new Object[] {cid});
 		return n>0;
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public List<Contacts> findContactsByUser(int userId) {
+		// TODO Auto-generated method stub
+		String sql = "select * from contact_details where user_id=?";
+		
+		return jdbcTemplate.query(sql, new Object[]{userId}, new ContactRowMapper());
 	}
 
 }

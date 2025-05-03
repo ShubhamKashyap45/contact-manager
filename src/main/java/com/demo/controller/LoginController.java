@@ -31,7 +31,7 @@ public class LoginController {
 
 		MyUser user = lservice.findUser(unm, pass);
 		System.out.println(user);
-		if(user != null && (user.getUsername().equals(unm)) && user.getPassword().equals(pass)) {
+		if(user != null) {
 			session.setAttribute("user", user);
 			return new ModelAndView("redirect:/contacts/getcontacts");
 		} else {

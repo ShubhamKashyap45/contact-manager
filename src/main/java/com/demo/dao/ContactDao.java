@@ -16,4 +16,6 @@ public interface ContactDao {
 
 	boolean removeById(int cid);
 
+	List<Contacts> findContactsByUser(int userId);
+
 }

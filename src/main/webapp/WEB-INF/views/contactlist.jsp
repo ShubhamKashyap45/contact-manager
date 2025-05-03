@@ -17,7 +17,7 @@
 	<th>Email</th>
 	<th>Actions</th>	
 </tr>
-<c:forEach var="cont" items="${clist}">
+<c:forEach var="cont" items="${uclist}">
  <tr>
  
  	<td>${cont.cid}</td>

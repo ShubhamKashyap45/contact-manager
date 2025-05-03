@@ -1,5 +1,6 @@
 package com.demo.beans;
 
+// This class in used for Registration purpose
 public class UserDetails {
 	
 	private String name;

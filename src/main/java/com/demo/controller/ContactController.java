@@ -2,6 +2,8 @@ package com.demo.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.demo.beans.Contacts;
+import com.demo.beans.MyUser;
 import com.demo.service.ContactService;
 
 @Controller
@@ -24,9 +27,15 @@ public class ContactController {
 	ContactService cservice;
 	
 	@GetMapping("/getcontacts")
-	public ModelAndView getAllContacts() {
-		List<Contacts> clist = cservice.getAllContacts();
-		return new ModelAndView("contactlist", "clist", clist);
+	public ModelAndView getAllContacts(HttpSession session) {
+		MyUser user = (MyUser) session.getAttribute("user");
+		if(user==null) {
+			return new ModelAndView("redirect:/security/login");
+		}
+		int userId = user.getUid();
+//		List<Contacts> clist = cservice.getAllContacts();
+		List<Contacts> uclist = cservice.getContactsByUserId(userId);
+		return new ModelAndView("contactlist", "uclist", uclist);
 		
 	}
 	
@@ -58,7 +67,7 @@ public class ContactController {
 	
 	@PostMapping("/updatecontact")
 	public ModelAndView updateContact(@RequestParam int cid, @RequestParam Long phoneno, @RequestParam String email) {
-		Contacts c = new Contacts(cid, phoneno, email);
+		Contacts c = new Contacts(cid, phoneno, email, cid);
 		boolean status = cservice.updateContact(c);
 		if(status) {
 			return new ModelAndView("redirect:/contacts/getcontacts");

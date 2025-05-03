@@ -43,4 +43,10 @@ public class ContactServiceImpl implements ContactService {
 		return cdao.removeById(cid);
 	}
 
+	@Override
+	public List<Contacts> getContactsByUserId(int userId) {
+		// TODO Auto-generated method stub
+		return cdao.findContactsByUser(userId);
+	}
+
 }
