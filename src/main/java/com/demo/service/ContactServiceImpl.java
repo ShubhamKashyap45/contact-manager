@@ -25,4 +25,16 @@ public class ContactServiceImpl implements ContactService {
 		return cdao.saveContact(c);
 	}
 
+	@Override
+	public boolean updateContact(Contacts c) {
+		// TODO Auto-generated method stub
+		return cdao.modifyContact(c);
+	}
+
+	@Override
+	public Contacts getById(int cid) {
+		// TODO Auto-generated method stub
+		return cdao.findById(cid);
+	}
+
 }

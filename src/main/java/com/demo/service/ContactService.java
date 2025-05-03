@@ -10,4 +10,8 @@ public interface ContactService {
 
 	boolean addNewContact(Contacts c);
 
+	boolean updateContact(Contacts c);
+
+	Contacts getById(int cid);
+
 }

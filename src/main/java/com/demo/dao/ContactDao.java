@@ -10,4 +10,8 @@ public interface ContactDao {
 
 	boolean saveContact(Contacts c);
 
+	boolean modifyContact(Contacts c);
+
+	Contacts findById(int cid);
+
 }
