@@ -46,12 +46,20 @@ public class ContactController {
 	}
 	
 	@PostMapping("/insertcontact")
-	public ModelAndView insertcontact(@ModelAttribute Contacts c) {
-		boolean status = cservice.addNewContact(c);
-		if(status) {
-			return new ModelAndView("redirect:/contacts/getcontacts");
+	public ModelAndView insertcontact(@ModelAttribute Contacts c, HttpSession session) {
+		MyUser user = (MyUser) session.getAttribute("user");
+		if(user != null) {
+			c.setUserId(user.getUid());
+			
+			boolean status = cservice.addNewContact(c);
+			if(status) {
+				return new ModelAndView("redirect:/contacts/getcontacts");
+			} else {
+				return new ModelAndView("redirect:/contacts/getcontacts", "msg", "Add Contact Failed");
+			}
 		} else {
-			return new ModelAndView("redirect:/contacts/getcontacts", "msg", "Add Contact Failed");
+			// session expired or user not logged in
+	        return new ModelAndView("redirect:/security/login", "msg", "Please login to continue");
 		}
 	}
 	

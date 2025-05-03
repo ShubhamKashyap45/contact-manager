@@ -30,8 +30,8 @@ public class ContactDaoImpl implements ContactDao {
 	@Override
 	public boolean saveContact(Contacts c) {
 		// TODO Auto-generated method stub
-		int n = jdbcTemplate.update("insert into contact_details(phoneno,email) values(?,?)",
-				new Object[] {c.getPhoneno(), c.getEmail()});
+		int n = jdbcTemplate.update("insert into contact_details(phoneno,email,user_id) values(?,?,?)",
+				new Object[] {c.getPhoneno(), c.getEmail(), c.getUserId()});
 		return n>0;
 	}
 
