@@ -60,4 +60,12 @@ public class ContactDaoImpl implements ContactDao {
 		}
 	}
 
+	@Override
+	public boolean removeById(int cid) {
+		// TODO Auto-generated method stub
+		int n = jdbcTemplate.update("delete from contact_details where cid =?", 
+				new Object[] {cid});
+		return n>0;
+	}
+
 }

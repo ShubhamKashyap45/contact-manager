@@ -37,4 +37,10 @@ public class ContactServiceImpl implements ContactService {
 		return cdao.findById(cid);
 	}
 
+	@Override
+	public boolean deleteById(int cid) {
+		// TODO Auto-generated method stub
+		return cdao.removeById(cid);
+	}
+
 }

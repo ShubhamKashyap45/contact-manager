@@ -14,4 +14,6 @@ public interface ContactDao {
 
 	Contacts findById(int cid);
 
+	boolean removeById(int cid);
+
 }

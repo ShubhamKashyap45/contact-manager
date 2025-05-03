@@ -14,4 +14,6 @@ public interface ContactService {
 
 	Contacts getById(int cid);
 
+	boolean deleteById(int cid);
+
 }

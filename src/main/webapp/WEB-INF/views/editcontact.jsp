@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="/contact-manager/contacts/updateproduct" method="post">
+<form action="/contact-manager/contacts/updatecontact" method="post">
 Contact Id: <input type="text" name="cid" id="cid" value="${cont.cid}" readonly><br>
 
 Enter Phone Number: <input

@@ -56,11 +56,26 @@ public class ContactController {
 		}
 	}
 	
-	@PostMapping("/updateproduct")
-	public ModelAndView updateProduct(@RequestParam int cid, @RequestParam Long phoneno, @RequestParam String email) {
+	@PostMapping("/updatecontact")
+	public ModelAndView updateContact(@RequestParam int cid, @RequestParam Long phoneno, @RequestParam String email) {
 		Contacts c = new Contacts(cid, phoneno, email);
 		boolean status = cservice.updateContact(c);
-		return new ModelAndView("redirect:/contacts/getcontacts");
+		if(status) {
+			return new ModelAndView("redirect:/contacts/getcontacts");
+		} else {
+			return new ModelAndView("redirect:/contacts/getcontacts", "msg", "Update Contact Failed");
+		}
+	}
+	
+	@GetMapping("deletecontact/{cid}")
+	public ModelAndView deleteContact(@PathVariable int cid) {
+		boolean status = cservice.deleteById(cid);
+		if(status) {
+			return new ModelAndView("redirect:/contacts/getcontacts");
+		} else {
+			return new ModelAndView("redirect:/contacts/getcontacts", "msg", "Delete Contact Failed");
+		}
+		
 	}
 
 }
