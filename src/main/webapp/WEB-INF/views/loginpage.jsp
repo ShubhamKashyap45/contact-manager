@@ -26,6 +26,9 @@
 
 		<button type="submit" name="btn" id="login">Login</button>
 	</form>
+	
+	<br>
+	<a href="/contact-manager/registeration/register">Register Me?</a>
 
 </body>
 </html>

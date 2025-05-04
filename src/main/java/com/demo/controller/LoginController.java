@@ -31,6 +31,10 @@ public class LoginController {
 
 		MyUser user = lservice.findUser(unm, pass);
 		System.out.println(user);
+		if(user != null && (user.getRole().equals("admin"))) {
+			session.setAttribute("user", user);
+			return new ModelAndView("redirect:/contacts/getcontacts");
+		}
 		if(user != null) {
 			session.setAttribute("user", user);
 			return new ModelAndView("redirect:/contacts/getcontacts");
