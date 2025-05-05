@@ -28,11 +28,11 @@ public class ContactController {
 	
 	@GetMapping("/getcontacts")
 	public ModelAndView getAllContacts(HttpSession session) {
-		MyUser user = (MyUser) session.getAttribute("user");
-		if(user==null) {
+		MyUser logedInUser = (MyUser) session.getAttribute("user");
+		if(logedInUser==null) {
 			return new ModelAndView("redirect:/security/login");
 		}
-		int userId = user.getUid();
+		int userId = logedInUser.getUid();
 //		List<Contacts> clist = cservice.getAllContacts();
 		List<Contacts> uclist = cservice.getContactsByUserId(userId);
 		return new ModelAndView("contactlist", "uclist", uclist);

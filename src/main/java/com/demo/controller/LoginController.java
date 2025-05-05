@@ -31,11 +31,12 @@ public class LoginController {
 
 		MyUser user = lservice.findUser(unm, pass);
 		System.out.println(user);
+		
 		if(user != null && (user.getRole().equals("admin"))) {
 			session.setAttribute("user", user);
-			return new ModelAndView("redirect:/contacts/getcontacts");
+			return new ModelAndView("redirect:/admin/dashboard");
 		}
-		if(user != null) {
+		if(user != null && (user.getRole().equals("user"))) {
 			session.setAttribute("user", user);
 			return new ModelAndView("redirect:/contacts/getcontacts");
 		} else {
