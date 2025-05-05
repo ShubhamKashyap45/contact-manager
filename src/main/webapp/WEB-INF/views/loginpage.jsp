@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,16 +10,10 @@
 </head>
 <body>
 
-	<%
-	String message = (String) request.getAttribute("msg");
-	if (message != null) {
-	%>
-
-	<p><%=message%></p>
-
-	<%
-	}
-	%>
+	<!-- Display message passed via redirect (flash attribute) -->
+    <c:if test="${not empty msg}">
+        <p style="color: green;">${msg}</p>
+    </c:if>
 
 	<form action="validate" method="post">
 		Username: <input type="text" name="uname" id="unm" required> <br>

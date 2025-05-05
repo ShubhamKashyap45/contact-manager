@@ -25,6 +25,9 @@ Enter Phone Number: <input
   title="Enter a 10-digit phone number"
 />
 
+Enter Username: <input type="text" name="username" id="unm2" required> <br>
+Enter Password: <input type="password" name="password" id="pass2" required> <br>
+
 <button type="submit" name="btn" id="reg"> Register Details</button>
 
 </form>

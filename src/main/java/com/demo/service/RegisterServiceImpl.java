@@ -2,7 +2,9 @@ package com.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.demo.beans.MyUser;
 import com.demo.beans.UserDetails;
 import com.demo.dao.RegisterDao;
 
@@ -12,9 +14,10 @@ public class RegisterServiceImpl implements RegisterService {
 	RegisterDao rdao;
 
 	@Override
-	public boolean addNewUser(UserDetails ud) {
+	@Transactional
+	public boolean addNewUser(UserDetails ud, MyUser user) {
 		// TODO Auto-generated method stub
-		return rdao.saveUser(ud);
+		return rdao.saveUser(ud,user);
 	}
 
 }
