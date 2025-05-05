@@ -5,38 +5,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Contacts</title>
+    <meta charset="ISO-8859-1">
+    <title>Contacts</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
-<body>
+<body class="bg-light">
 
-<table border="2">
-<tr>
-	<th>Contact Id </th>
-	<th>Phone Number</th>
-	<th>Email</th>
-	<th>Actions</th>	
-</tr>
-<c:forEach var="cont" items="${uclist}">
- <tr>
- 
- 	<td>${cont.cid}</td>
- 	<td>${cont.phoneno}</td>
- 	<td>${cont.email}</td>
- 	<td>
- 		<a href="editcontact/${cont.cid}">Edit</a> /
- 		<a href="deletecontact/${cont.cid}">Delete</a>
- 	</td>
- 	
- </tr>
+<div class="container mt-5">
+    <h2 class="text-center text-primary mb-4">Contact List</h2>
 
-</c:forEach>
+    <div class="card border-0 shadow-sm">
+        <div class="card-body">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Contact Id</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="cont" items="${uclist}">
+                        <tr>
+                            <td>${cont.cid}</td>
+                            <td>${cont.phoneno}</td>
+                            <td>${cont.email}</td>
+                            <td>
+                                <a href="editcontact/${cont.cid}" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="deletecontact/${cont.cid}" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-</table>
+    <div class="text-center mt-3">
+        <form action="addnewcontact">
+            <button type="submit" class="btn btn-success">Add New Contact</button>
+        </form>
+    </div>
+</div>
 
-<form action="addnewcontact">
-	<button type="submit" name="btn" id="add">Add New Contact</button>
-</form>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
