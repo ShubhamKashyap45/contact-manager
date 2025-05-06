@@ -15,7 +15,7 @@
 <tr>
    <th>User ID</th>
    <th>Username</th>
-   <th>Password</th>
+   <!-- <th>Password</th> -->
    <th>Role</th>
    <th>Actions</th>
 </tr>
@@ -24,7 +24,7 @@
   <tr>
     <td>${u.uid}</td>
     <td>${u.username}</td>
-    <td>${u. password}</td>
+<%--     <td>${u. password}</td> --%>
     <td>${u.role}</td>
     <td>
       <a href="edituser/${u.uid}">edit</a> /
