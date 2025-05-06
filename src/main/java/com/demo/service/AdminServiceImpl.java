@@ -31,4 +31,10 @@ public class AdminServiceImpl implements AdminService {
 		return adao.modifyUser(u);
 	}
 
+	@Override
+	public boolean deleteById(int uid) {
+		// TODO Auto-generated method stub
+		return adao.removeById(uid);
+	}
+
 }

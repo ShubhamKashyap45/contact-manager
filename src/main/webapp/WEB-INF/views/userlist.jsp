@@ -11,6 +11,10 @@
 
 <h2>Registered Users</h2>
 
+<c:if test="${not empty msg}">
+    <div class="alert alert-info text-center">${msg}</div>
+</c:if>
+
 <table border="2">
 <tr>
    <th>User ID</th>

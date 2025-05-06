@@ -50,4 +50,13 @@ public class AdminController {
 		return status? user_updated : failed;
 	}
 	
+	@GetMapping("/deleteuser/{uid}")
+	public ModelAndView deleteUser(@PathVariable int uid) {
+		boolean status = aservice.deleteById(uid);
+		if(status) {
+			return new ModelAndView("redirect:/admin/dashboard");
+		} else {
+			return new ModelAndView("redirect:/admin/dashboard", "msg", "Delete User Failed");
+		}
+	}
 }

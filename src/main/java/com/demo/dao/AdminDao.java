@@ -12,4 +12,6 @@ public interface AdminDao {
 
 	boolean modifyUser(MyUser u);
 
+	boolean removeById(int uid);
+
 }

@@ -44,4 +44,12 @@ public class AdminDaoImpl implements AdminDao {
 		int n = jdbcTemplate.update(sql, new Object[] {u.getUsername(), u.getPassword(), u.getRole(), u.getUid()});
 		return n>0;
 	}
+
+	@Override
+	public boolean removeById(int uid) {
+		// TODO Auto-generated method stub
+		String sql = "delete from users where uid=?";
+		int n = jdbcTemplate.update(sql, new Object[] {uid});
+		return n>0;
+	}
 }
