@@ -20,6 +20,7 @@ public class Contacts {
 		this.email = email;
 		this.userId = userId;
 	}
+
 	public int getCid() {
 		return cid;
 	}

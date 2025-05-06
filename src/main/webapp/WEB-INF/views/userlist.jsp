@@ -24,7 +24,7 @@
   <tr>
     <td>${u.uid}</td>
     <td>${u.username}</td>
-    <td>${u.password}</td>
+    <td>${u. password}</td>
     <td>${u.role}</td>
     <td>
       <a href="edituser/${u.uid}">edit</a> /

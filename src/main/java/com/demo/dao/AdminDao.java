@@ -8,4 +8,8 @@ public interface AdminDao {
 
 	List<MyUser> findAllUsers();
 
+	MyUser findById(int uid);
+
+	boolean modifyUser(MyUser u);
+
 }

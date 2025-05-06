@@ -7,6 +7,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,5 +31,23 @@ public class AdminController {
 		List<MyUser> ulist = aservice.getAllUsers();
 		return new ModelAndView("userlist", "ulist", ulist);
 	}
-
+	
+	@GetMapping("/edituser/{uid}")
+	public ModelAndView editUser(@PathVariable int uid) {
+		MyUser u = aservice.getById(uid);
+		if(u != null) {
+			return new ModelAndView("edituser", "user", u);
+		} else {
+			return new ModelAndView("redirect:/admin/dashboard");
+		}
+	}
+	
+	@PostMapping("/updateuser")
+	public ModelAndView updateUser(@ModelAttribute MyUser u) {
+		boolean status = aservice.updateUser(u);
+		ModelAndView user_updated = new ModelAndView("redirect:/admin/dashboard");
+		ModelAndView failed = new ModelAndView("redirect:/admin/dashboard", "msg", "Update User Failed");
+		return status? user_updated : failed;
+	}
+	
 }

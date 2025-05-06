@@ -8,4 +8,8 @@ public interface AdminService {
 
 	List<MyUser> getAllUsers();
 
+	MyUser getById(int uid);
+
+	boolean updateUser(MyUser u);
+
 }

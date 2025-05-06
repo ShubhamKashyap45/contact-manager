@@ -19,4 +19,16 @@ public class AdminServiceImpl implements AdminService {
 		return adao.findAllUsers();
 	}
 
+	@Override
+	public MyUser getById(int uid) {
+		// TODO Auto-generated method stub
+		return adao.findById(uid);
+	}
+
+	@Override
+	public boolean updateUser(MyUser u) {
+		// TODO Auto-generated method stub
+		return adao.modifyUser(u);
+	}
+
 }
