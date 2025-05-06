@@ -1,4 +1,4 @@
-package com.demo.dao;
+package com.demo.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,8 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/logout")
 public class LogoutController {
 	
-	@GetMapping("userlogout")
+	@GetMapping("/userlogout")
 	public String logoutUser(HttpSession session) {
+		session.invalidate();
+		return "redirect:/security/login";
+	}
+	
+	@GetMapping("/adminlogout")
+	public String logoutAdmin(HttpSession session) {
 		session.invalidate();
 		return "redirect:/security/login";
 	}

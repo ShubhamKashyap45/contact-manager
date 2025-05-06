@@ -9,6 +9,12 @@
 </head>
 <body>
 
+<div class="position-absolute top-0 end-0 m-3">
+        <form action="/contact-manager/logout/adminlogout" method="get">
+            <button type="submit" class="btn btn-danger btn-sm">Logout</button>
+        </form>
+    </div>
+
 <h2>Registered Users</h2>
 
 <c:if test="${not empty msg}">
