@@ -12,6 +12,13 @@
 <body class="bg-light">
 
 <div class="container mt-5">
+    <!-- Logout button positioned at top right -->
+    <div class="position-absolute top-0 end-0 m-3">
+        <form action="/contact-manager/logout/userlogout" method="get">
+            <button type="submit" class="btn btn-danger btn-sm">Logout</button>
+        </form>
+    </div>
+
     <h2 class="text-center text-primary mb-4">Contact List</h2>
 
     <div class="card border-0 shadow-sm">
