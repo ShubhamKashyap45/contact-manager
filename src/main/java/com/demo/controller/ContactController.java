@@ -74,8 +74,8 @@ public class ContactController {
 	}
 	
 	@PostMapping("/updatecontact")
-	public ModelAndView updateContact(@RequestParam int cid, @RequestParam Long phoneno, @RequestParam String email) {
-		Contacts c = new Contacts(cid, phoneno, email, cid);
+	public ModelAndView updateContact(@RequestParam int cid, @RequestParam String name, @RequestParam Long phoneno, @RequestParam String email) {
+		Contacts c = new Contacts(cid, name, phoneno, email);
 		boolean status = cservice.updateContact(c);
 		if(status) {
 			return new ModelAndView("redirect:/contacts/getcontacts");

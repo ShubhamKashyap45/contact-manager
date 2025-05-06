@@ -27,6 +27,7 @@
                 <thead>
                     <tr>
                         <th>Contact Id</th>
+                        <th>Name</th>
                         <th>Phone Number</th>
                         <th>Email</th>
                         <th>Actions</th>
@@ -36,6 +37,7 @@
                     <c:forEach var="cont" items="${uclist}">
                         <tr>
                             <td>${cont.cid}</td>
+                            <td>${cont.name}</td>
                             <td>${cont.phoneno}</td>
                             <td>${cont.email}</td>
                             <td>

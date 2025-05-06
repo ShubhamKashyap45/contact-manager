@@ -21,8 +21,9 @@ public class ContactDaoImpl implements ContactDao {
 		return jdbcTemplate.query("select * from contact_details", (rs, rownum) -> {
 			Contacts c = new Contacts();
 			c.setCid(rs.getInt(1));
-			c.setPhoneno(rs.getLong(2));
-			c.setEmail(rs.getString(3));
+			c.setName(rs.getString(2));
+			c.setPhoneno(rs.getLong(3));
+			c.setEmail(rs.getString(4));
 			return c;
 		});
 	}
@@ -30,16 +31,16 @@ public class ContactDaoImpl implements ContactDao {
 	@Override
 	public boolean saveContact(Contacts c) {
 		// TODO Auto-generated method stub
-		int n = jdbcTemplate.update("insert into contact_details(phoneno,email,user_id) values(?,?,?)",
-				new Object[] {c.getPhoneno(), c.getEmail(), c.getUserId()});
+		int n = jdbcTemplate.update("insert into contact_details(name, phoneno,email,user_id) values(?,?,?,?)",
+				new Object[] {c.getName(), c.getPhoneno(), c.getEmail(), c.getUserId()});
 		return n>0;
 	}
 
 	@Override
 	public boolean modifyContact(Contacts c) {
 		// TODO Auto-generated method stub
-		int n = jdbcTemplate.update("update contact_details set phoneno=?, email=? where cid=?",
-				new Object[] {c.getPhoneno(), c.getEmail(), c.getCid()});
+		int n = jdbcTemplate.update("update contact_details set name=?, phoneno=?, email=? where cid=?",
+				new Object[] {c.getName(), c.getPhoneno(), c.getEmail(), c.getCid()});
 		return n>0;
 	}
 
@@ -52,8 +53,9 @@ public class ContactDaoImpl implements ContactDao {
 					new Object[] {cid}, (rs,rownum)->{
 						Contacts c = new Contacts();
 						c.setCid(rs.getInt(1));
-						c.setPhoneno(rs.getLong(2));
-						c.setEmail(rs.getString(3));
+						c.setName(rs.getString(2));
+						c.setPhoneno(rs.getLong(3));
+						c.setEmail(rs.getString(4));
 						return c;
 					});
 		} catch(EmptyResultDataAccessException e) {

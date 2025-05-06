@@ -12,9 +12,9 @@
             max-width: 700px;
             margin: 50px auto;
             padding: 30px;
-            background-color: #fff;  /* Optional: White background */
-            border-radius: 8px;  /* Optional: Round corners */
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  /* Optional: Add slight shadow */
+            background-color: #fff;  /* White background */
+            border-radius: 8px;  /* Round corners */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  /* Add slight shadow */
         }
 
         .edit-container h3 {
@@ -75,11 +75,19 @@
                     <input type="text" class="form-control" name="cid" id="cid" value="${cont.cid}" readonly>
                 </div>
 
+                <!-- Add Name field -->
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" name="name" id="name" value="${cont.name}" required>
+                </div>
+
+                <!-- Phone Number -->
                 <div class="mb-3">
                     <label for="phoneno" class="form-label">Phone Number</label>
                     <input type="tel" class="form-control" name="phoneno" id="phoneno" value="${cont.phoneno}" required pattern="[0-9]{10}" maxlength="10" inputmode="numeric" title="Enter a 10-digit phone number">
                 </div>
 
+                <!-- Email Address -->
                 <div class="mb-3">
                     <label for="email" class="form-label">Email Address</label>
                     <input type="email" class="form-control" name="email" id="email" value="${cont.email}" required title="Enter a valid email address">

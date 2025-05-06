@@ -14,9 +14,10 @@ public class ContactRowMapper implements RowMapper<Contacts>{
 		// TODO Auto-generated method stub
 		Contacts c = new Contacts();
 		c.setCid(rs.getInt(1));
-		c.setPhoneno(rs.getLong(2));
-		c.setEmail(rs.getString(3));
-		c.setUserId(rs.getInt(4));
+		c.setName(rs.getString(2));
+		c.setPhoneno(rs.getLong(3));
+		c.setEmail(rs.getString(4));
+		c.setUserId(rs.getInt(5));
 		return c;
 	}
 

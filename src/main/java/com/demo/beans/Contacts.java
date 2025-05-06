@@ -4,6 +4,7 @@ package com.demo.beans;
 public class Contacts {
 	
 	private int cid;
+	private String name;
 	private Long phoneno;
 	private String email;
 	private int userId;
@@ -13,12 +14,21 @@ public class Contacts {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Contacts(int cid, Long phoneno, String email, int userId) {
+	public Contacts(int cid, String name, Long phoneno, String email, int userId) {
 		super();
 		this.cid = cid;
+		this.name = name;
 		this.phoneno = phoneno;
 		this.email = email;
 		this.userId = userId;
+	}
+
+	public Contacts(int cid, String name, Long phoneno, String email) {
+		super();
+		this.cid = cid;
+		this.name = name;
+		this.phoneno = phoneno;
+		this.email = email;
 	}
 
 	public int getCid() {
@@ -27,6 +37,15 @@ public class Contacts {
 	public void setCid(int cid) {
 		this.cid = cid;
 	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public long getPhoneno() {
 		return phoneno;
 	}
