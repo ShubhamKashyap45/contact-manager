@@ -100,7 +100,7 @@ jdbc.driver=com.mysql.cj.jdbc.Driver
 - **editcontact.jsp**: Form to edit an existing contact.
 - **registerationform.jsp**: Form for user registration.
 - **userlist.jsp**: Admin page to manage users.
-- **showmessage.jsp**: Displays a sample message.
+- **edituser.jsp**: Admin can edit/delete users.
 - **index.jsp**: Displays the index page.
 
 ## 5. Web.xml Configuration 🖥️
